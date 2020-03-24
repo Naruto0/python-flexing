@@ -5,12 +5,17 @@
 This repository has one goal, to demonstrate my problem solving
 capability and to advertise challenges.
 
-``"PLEASE STOP RIGHT THERE"``
+_"Oh, please mek it shorter.."_
+
+Allright.
 
 ```python
 def tldr(content):
     return content[5000:]
 ```
+.
+..
+...
 
 ## Contents
 
