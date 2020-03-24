@@ -14,8 +14,8 @@ def tldr(content):
 
 ## Contents
 
-- [Snakes](../blob/master/pysnake) python implementation of classic
+- [Snakes](pysnake) python implementation of classic
 snake game `<type: Challange>`
-- [Triangle()](../blob/master/triangle) & `Point()` Two friends forever `<type: Codewars.kata>`
+- [Triangle()](triangle) & `Point()` Two friends forever `<type: Codewars.kata>`
 
-Her you have [usage](../blob/master/LICENSE)
+Her you have [usage](LICENSE)
