@@ -5,7 +5,7 @@
 This repository has one goal, to demonstrate my problem solving
 capability and to advertise challenges.
 
-_"Oh, please mek it shorter.."_
+_"Oh, please make it shorter.."_
 
 Allright.
 
@@ -13,9 +13,6 @@ Allright.
 def tldr(content):
     return content[5000:]
 ```
-.
-..
-...
 
 ## Contents
 
