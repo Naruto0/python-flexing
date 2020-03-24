@@ -4,8 +4,9 @@ _.. with `Typing` Yaaay!_
 
 ## Task
 
-Given three `Points(x,y)` in the space, count the perimter
-of triangle `Triangle[Point(x,y),Point(x1,y1),Point(x2,x3)]`.
+Given three _points_ `Point(x,y)` in the two-dimensional space,
+count the perimter of 
+triangle `Triangle[Point(x,y),Point(x1,y1),Point(x2,x3)]`.
 
 We can simply write a function to do this for us following the rule
 that not for every problem we need to create `class`.
