@@ -19,5 +19,6 @@ def tldr(content):
 - [Snakes](pysnake) python implementation of classic
 snake game `<type: Challange>`
 - [Triangle()](triangle) & `Point()` Two friends forever `<type: Codewars.kata>`
+- [Sorting]Visualized sorting algorytms
 
 Her you have [usage](LICENSE)
