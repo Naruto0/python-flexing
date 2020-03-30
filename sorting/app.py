@@ -1,30 +1,13 @@
 from tkinter import (
     Tk, Canvas, Button, StringVar,
-    Frame, OptionMenu, Entry, ALL
+    Frame, OptionMenu, ALL
     )
 from random import shuffle
 
-from algorythms import *
+from sorting.objectypes import ListObject
+from sorting.settings import SORTING_SPEED, RANDOM_RANGE
 
-RANDOM_RANGE = (48, 256, 8)
-# RANDOM_RANGE = (60, 260, 20)
-
-SORTING_METHODS = {
-    'bubble': bubble,
-    'selection': selection,
-    'insertion': insertion
-    }
-
-SORTING_SPEED = {
-    'super-fast' : 10,
-    'fast': 25,
-    'normal': 125,
-    'slow': 255,
-    'ultra-slow': 500
-}
-
-BAR_SPACING = 12
-BAR_OFFSET = 4
+from sorting.algos import SORTING_METHODS
 
 
 def generate(rng):
@@ -32,79 +15,6 @@ def generate(rng):
     li = [i for i in range(*rng)]
     shuffle(li)
     return li
-
-
-class ListObject(list):
-    def __init__(self, iterable):
-        super().__init__(iterable)
-        self.source = iterable
-        self.master = None
-        self.clear()
-
-    def initialize(self, master):
-        self.master = master
-        self.create_from_list(self.source)
-
-    def create_from_list(self, source):
-        self.clear()
-        for index, value in enumerate(source):
-            self.append(
-                Rectangle(self.master, value, index)
-            )
-        self.render_sorted()
-    
-    def render_sorted(self):
-        for bar in self:
-            bar.move(bar.index * BAR_SPACING + BAR_OFFSET)
-        self.master.update()
-    
-    def refresh_indexes(self):
-        for index, rect in enumerate(self):
-            rect.set_index(index)
-
-
-class Rectangle:
-    """rectangle item"""
-    def __init__(self, master, value, index):
-        self.master = master
-        self.value = value
-        self.index = index
-        self.obj = master.create_rectangle(
-            0, 0, 8,
-            self.value,
-            fill="blue"
-            )
-        self.init_pos = self.master.coords(self.obj)
-    
-    def get_position(self):
-        return self.master.coords(self.obj)
-
-    def set_index(self, value):
-        self.index = value
-
-    def __str__(self):
-        return "{0}{{'value':{1},'index':{2}}}".format(
-            self.__class__.__name__, self.value, self.index)
-    
-    def move(self, moveX):
-        a, c = self.init_pos[0] + moveX, self.init_pos[2] + moveX
-        self.master.coords(self.obj, (a, 0, c, self.value))
-
-    def get(self):
-        return self.obj
-    
-    def __lt__(self, other):
-        return self.value < other.value
-
-    def __gt_(self, other):
-        return self.value > other.value
-    
-    def position(self, *args):
-        return self.master.coords(self.obj, *args)
-
-    def color(self, color):
-        self.master.itemconfig(self.obj, fill=color)
-        self.master.update()
 
 
 class CanvasFrame(Frame):
