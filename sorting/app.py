@@ -2,20 +2,10 @@ from tkinter import (
     Tk, Canvas, Button, StringVar,
     Frame, OptionMenu, ALL
     )
-from random import shuffle
-
 from sorting.objectypes import ListObject
 from sorting.settings import SORTING_SPEED, RANDOM_RANGE
-
-from sorting.algos import SORTING_METHODS
-
-
-def generate(rng):
-    """Make random range"""
-    li = [i for i in range(*rng)]
-    shuffle(li)
-    return li
-
+from sorting.utils import generate
+from sorting import SORTING_METHODS
 
 class CanvasFrame(Frame):
     """Drawing area"""

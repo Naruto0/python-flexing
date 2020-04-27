@@ -1,8 +1,8 @@
 from sorting.objectypes import ListObject
+from sorting.utils import register_algorythm
 
-__all__ = ['selection', 'bubble', 'insertion', 'merge', 'SORTING_METHODS']
 
-
+@register_algorythm('bubble')
 def bubble(app, ls, speed):
     delay = int(speed//3)
     n = len(ls)
@@ -30,6 +30,7 @@ def bubble(app, ls, speed):
             key.color("blue")
 
 
+@register_algorythm('selection')
 def selection(app, ls, speed):
     delay = int(speed//3)
     n = len(ls)
@@ -50,7 +51,7 @@ def selection(app, ls, speed):
         # the first element
         min = ls[min_idx]
         min.color("green")
-        first= ls[i]
+        first = ls[i]
         first.color("red")
         ls[i], ls[min_idx] = min, first
         app.after(delay*2)
@@ -61,6 +62,7 @@ def selection(app, ls, speed):
         first.color("blue")
 
 
+@register_algorythm('insertion')
 def insertion(app, ls, speed):
     delay = int(speed // 3)
     for i in range(1, len(ls)):
@@ -81,6 +83,7 @@ def insertion(app, ls, speed):
         key.color("blue")
 
 
+@register_algorythm('merge')
 def merge(app, ls, speed):
     delay = int(speed // 4)
     # Python program for implementation of MergeSort
@@ -154,18 +157,9 @@ def merge(app, ls, speed):
                 k += 1
                 app.after(delay)
                 arr.refresh_indexes()
-                #ls.render_sorted()
                 app.after(delay)
                 key.color("blue")
 
             ls.render_sorted()
 
     merge_sort(ls)
-
-
-SORTING_METHODS = {
-    'bubble': bubble,
-    'selection': selection,
-    'insertion': insertion,
-    'merge': merge
-    }
